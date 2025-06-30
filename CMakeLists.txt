@@ -38,21 +38,28 @@ set(RESOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/resources)
 set(PROJECT_INCLUDE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/include)
 
 # Define os arquivos-fonte da aplicação
+# Define os arquivos-fonte da aplicação
 file(GLOB_RECURSE APP_SRCS
-    "${SOURCE_DIR}/main.cpp"
-    "${SOURCE_DIR}/core/*.cpp" # Inclui todos os .cpp da pasta core
-    "${SOURCE_DIR}/database/*.cpp" # Inclui todos os .cpp da pasta database
-    "${SOURCE_DIR}/ui/**/*.cpp" # Inclui todos os .cpp da pasta ui e suas subpastas
+    "${SOURCE_DIR}/main.cpp"           
+    "${SOURCE_DIR}/core/*.cpp"
+    "${SOURCE_DIR}/database/*.cpp"
+    "${SOURCE_DIR}/ui/**/*.cpp"
 )
+
+message(STATUS "APP_SRCS found: ${APP_SRCS}") # LINHA DE DEPURACAO - REMOVA DEPOIS DE RESOLVER
 
 if(APPLE)
     add_executable(main MACOSX_BUNDLE ${APP_SRCS})
     set_target_properties(main PROPERTIES MACOSX_BUNDLE_INFO_PLIST ${RESOURCE_DIR}/manifest/Info.plist)
 else()
-    add_executable(main WIN32 ${APP_SRCS} ${RESOURCE_DIR}/manifest/main.exe.manifest)
+    # CORRIGIDO: Removido manifesto da lista de fontes
+    add_executable(main WIN32 ${APP_SRCS})
+    # CORRIGIDO: Adicionado manifesto como propriedade
+    set_target_properties(main PROPERTIES WIN32_EXECUTABLE_MANIFEST ${RESOURCE_DIR}/manifest/main.exe.manifest)
 endif()
 
 target_link_libraries(main PRIVATE wxcore wxnet) # Continue linkando com as libs do wxWidgets
+
 
 # Adiciona os diretórios de inclusão para o seu projeto
 target_include_directories(main PRIVATE
