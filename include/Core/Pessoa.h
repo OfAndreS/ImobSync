@@ -6,7 +6,7 @@
 //id
 //telefone
 
-namespace ib
+namespace iSync
 {
     class Pessoa 
     {
@@ -14,14 +14,14 @@ namespace ib
             const std::string telefone;
             const std::string nome;
             const int nextId;
-
-            // // Geterrs
-            const std::string getNome();
-            const std::string getTelefone();
-            const int getId();
-
+            
             // // Construtor 
             Pessoa(const int nextId, const std::string nome, const std::string telefone);
+
+            // // Geterrs
+            const std::string getTelefone();
+            const std::string getNome();
+            const int getId();
     };
     
 } // namespace ib
