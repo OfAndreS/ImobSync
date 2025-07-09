@@ -17,9 +17,9 @@ namespace iSync
             Corretor(const int nextId, const std::string nome, const std::string telefone, bool avaliador, double lat, double lng);
 
             // // Geterrs
+            const bool getAvaliador();
             const double getLat();
             const double getLng();
-            const bool getAvaliador();
     };
     
 } // namespace iSync
