@@ -1,7 +1,7 @@
 #pragma once
 
 #include <string>
-#include "Pessoa.h"
+#include "Core/Pessoa.h"
 
 namespace iSync
 {

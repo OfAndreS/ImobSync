@@ -17,11 +17,11 @@ namespace iSync
             
             // // Construtor 
             Pessoa(const int nextId, const std::string nome, const std::string telefone);
-
+        public:
             // // Geterrs
             const std::string getTelefone();
             const std::string getNome();
             const int getId();
     };
     
-} // namespace ib
+} // namespace iSync

@@ -1,4 +1,4 @@
-#include "Pessoa.h"
+#include "Core/Pessoa.h"
 
 iSync::Pessoa::Pessoa(const int nextId, const std::string nome, const std::string telefone) : nextId(nextId), nome(nome), telefone(telefone) 
 {}
