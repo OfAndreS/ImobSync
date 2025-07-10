@@ -2,14 +2,15 @@
 #include <vector>
 
 #include "Core/Pessoa.h"
-#include "Infra/ConsoleUI.h"
+#include "Infra/ConsoleUI.hpp"
 #include "Infra/PessoaFactory.h"
 
-void inicializarClientes(iSync::ConsoleUI& myUi, iSync::PessoaFactory& myPessoaFactory, std::vector<iSync::Pessoa>& myListaDePessoa)
+void inicializarClientes(iSync::ConsoleUI& myUI, iSync::PessoaFactory& myPessoaFactory, std::vector<iSync::Pessoa>& myListaDePessoa)
 {
-    myUi.printHeader();
-    // // Alterar por modelo de entrada padrão do sistema
     int userInput;
+
+    myUI.printHeader();
+
     std::cin >> userInput;
 
     for (int i = 0; i < userInput; i++)
@@ -21,12 +22,13 @@ void inicializarClientes(iSync::ConsoleUI& myUi, iSync::PessoaFactory& myPessoaF
 
 int main()
 {
-    iSync::ConsoleUI myUi;
+    iSync::ConsoleUI myUI;
     iSync::PessoaFactory myPessoaFactory;
 
     std::vector<iSync::Pessoa> myListaDePessoa;
 
-    inicializarClientes(myUi, myPessoaFactory, myListaDePessoa);
+    inicializarClientes(myUI, myPessoaFactory, myListaDePessoa);
 
-    myUi.printLista(myListaDePessoa);
+    myUI.printLista(myListaDePessoa);
 }
+

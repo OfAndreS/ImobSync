@@ -1,8 +1,8 @@
-#include "Infra/ConsoleUI.h"
+#include "Infra/ConsoleUI.hpp"
 
 void iSync::ConsoleUI::printHeader()
 {
-    std::cout << "\n\n|  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *\n\n" << std::endl;
+    std::cout << "\n\n|  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *\n\n" << std::endl;
 }
 
 void iSync::ConsoleUI::printLista(std::vector<iSync::Pessoa>& myListaDePessoa)

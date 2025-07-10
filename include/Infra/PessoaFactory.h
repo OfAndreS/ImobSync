@@ -6,6 +6,8 @@
 #include "Core/Pessoa.h"
 #include "Core/Cliente.h"
 #include "Core/Corretor.h"
+#include "Infra/ConsoleUI.hpp"
+
 
 namespace iSync
 {
