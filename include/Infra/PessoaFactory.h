@@ -17,8 +17,7 @@ namespace iSync
             iSync::Pessoa criarNovoCliente_PorTesteAutomatizado();
             iSync::Pessoa criarNovoCliente_PorConsole();
 
-            iSync::Pessoa criarNovoCorretor();
-
+            iSync::Pessoa criarNovoCorretor_PorTesteAutomatizado();
     };
 
 } // namespace iSync

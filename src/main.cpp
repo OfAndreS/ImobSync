@@ -20,6 +20,21 @@ void inicializarClientes(iSync::ConsoleUI& myUI, iSync::PessoaFactory& myPessoaF
 
 }
 
+void inicializarCorretor(iSync::ConsoleUI& myUI, iSync::PessoaFactory& myPessoaFactory, std::vector<iSync::Pessoa>& myListaDePessoa)
+{
+    int userInput;
+
+    myUI.printHeader();
+
+    std::cin >> userInput;
+
+    for (int i = 0; i < userInput; i++)
+    {
+        myListaDePessoa.push_back(myPessoaFactory.criarNovoCorretor_PorTesteAutomatizado());
+    }
+
+}
+
 int main()
 {
     iSync::ConsoleUI myUI;
@@ -27,6 +42,7 @@ int main()
 
     std::vector<iSync::Pessoa> myListaDePessoa;
 
+    inicializarCorretor(myUI, myPessoaFactory, myListaDePessoa);
     inicializarClientes(myUI, myPessoaFactory, myListaDePessoa);
 
     myUI.printLista(myListaDePessoa);

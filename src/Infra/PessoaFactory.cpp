@@ -2,14 +2,25 @@
 
 iSync::Pessoa iSync::PessoaFactory::criarNovoCliente_PorTesteAutomatizado()
 {
-    std::string nomeBuffer, telefoneBuffer;
+    std::string bufferNome, bufferTelefone;
 
-    std::cin >> telefoneBuffer;
+    std::cin >> bufferTelefone >> bufferNome;
 
-    std::cin >> nomeBuffer;
-
-    return iSync::Cliente( 000 , nomeBuffer, telefoneBuffer);
+    return iSync::Cliente( 000 , bufferNome, bufferTelefone);
 }
+
+iSync::Pessoa iSync::PessoaFactory::criarNovoCorretor_PorTesteAutomatizado()
+{
+    std::string bufferNome, bufferTelefone;
+    double bufferLat, bufferLng;
+    bool bufferAvaliador;
+
+    std::cin >> bufferTelefone >> bufferAvaliador >> bufferLat >> bufferLng >> bufferNome;
+
+    return iSync::Cliente( 000 , bufferNome, bufferTelefone);
+}
+
+// // Criação de objetos pelo console 
 
 iSync::Pessoa iSync::PessoaFactory::criarNovoCliente_PorConsole()
 {
