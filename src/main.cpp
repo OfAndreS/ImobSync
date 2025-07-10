@@ -5,34 +5,36 @@
 #include "Infra/ConsoleUI.hpp"
 #include "Infra/PessoaFactory.h"
 
-void inicializarClientes(iSync::ConsoleUI& myUI, iSync::PessoaFactory& myPessoaFactory, std::vector<iSync::Pessoa>& myListaDePessoa)
+int userNumberOfInput(iSync::ConsoleUI& myUI)
 {
-    int userInput;
+    int userNumberOfInput;
 
     myUI.printHeader();
 
-    std::cin >> userInput;
+    // // Entrada padrão de dados para o sistema com tratamento de exceções 
+    if(!myUI.input_iSync(userNumberOfInput))
+    {
+        std::cout << "| Falha na inicialização " << std::endl;
+        exit(1);
+    }
 
-    for (int i = 0; i < userInput; i++)
+    return userNumberOfInput;
+}
+
+void inicializarClientes(iSync::PessoaFactory& myPessoaFactory, std::vector<iSync::Pessoa>& myListaDePessoa, int userNumberOfInput)
+{
+    for (int i = 0; i < userNumberOfInput; i++)
     {
         myListaDePessoa.push_back(myPessoaFactory.criarNovoCliente_PorTesteAutomatizado());
     }
-
 }
 
-void inicializarCorretor(iSync::ConsoleUI& myUI, iSync::PessoaFactory& myPessoaFactory, std::vector<iSync::Pessoa>& myListaDePessoa)
+void inicializarCorretor(iSync::PessoaFactory& myPessoaFactory, std::vector<iSync::Pessoa>& myListaDePessoa, int userNumberOfInput)
 {
-    int userInput;
-
-    myUI.printHeader();
-
-    std::cin >> userInput;
-
-    for (int i = 0; i < userInput; i++)
+    for (int i = 0; i < userNumberOfInput; i++)
     {
         myListaDePessoa.push_back(myPessoaFactory.criarNovoCorretor_PorTesteAutomatizado());
     }
-
 }
 
 int main()
@@ -42,8 +44,9 @@ int main()
 
     std::vector<iSync::Pessoa> myListaDePessoa;
 
-    inicializarCorretor(myUI, myPessoaFactory, myListaDePessoa);
-    inicializarClientes(myUI, myPessoaFactory, myListaDePessoa);
+    inicializarCorretor(myPessoaFactory, myListaDePessoa, userNumberOfInput(myUI));
+    inicializarClientes(myPessoaFactory, myListaDePessoa, userNumberOfInput(myUI));
+    // // Lógica para inicializar os imóveis
 
     myUI.printLista(myListaDePessoa);
 }

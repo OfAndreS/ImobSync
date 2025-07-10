@@ -2,22 +2,31 @@
 
 iSync::Pessoa iSync::PessoaFactory::criarNovoCliente_PorTesteAutomatizado()
 {
+    iSync::ConsoleUI myUI;
+    
     std::string bufferNome, bufferTelefone;
 
-    std::cin >> bufferTelefone >> bufferNome;
+    myUI.input_iSync(bufferNome);
+    myUI.input_iSync(bufferTelefone);
 
     return iSync::Cliente( 000 , bufferNome, bufferTelefone);
 }
 
 iSync::Pessoa iSync::PessoaFactory::criarNovoCorretor_PorTesteAutomatizado()
 {
+    iSync::ConsoleUI myUI;
+
     std::string bufferNome, bufferTelefone;
     double bufferLat, bufferLng;
     bool bufferAvaliador;
 
-    std::cin >> bufferTelefone >> bufferAvaliador >> bufferLat >> bufferLng >> bufferNome;
-
-    return iSync::Cliente( 000 , bufferNome, bufferTelefone);
+    if(myUI.input_iSync(bufferTelefone) && myUI.input_iSync(bufferAvaliador) && myUI.input_iSync(bufferLat) && myUI.input_iSync(bufferLng) && myUI.input_iSync(bufferNome))
+    {
+        return iSync::Corretor(0, bufferNome, bufferTelefone, bufferAvaliador, bufferLat, bufferLng);
+    }
+    
+    std::cout << "| ERROR: Problema na formatação" << std::endl;
+    return NULL; 
 }
 
 // // Criação de objetos pelo console 
