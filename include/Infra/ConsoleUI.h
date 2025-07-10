@@ -1,6 +1,9 @@
 #pragma once
 
-#include <iostream> 
+#include <iostream>
+#include <vector>
+
+#include "Core/Pessoa.h" 
 
 // include/Infra/ConsoleUI.h
 namespace iSync
@@ -9,5 +12,9 @@ namespace iSync
     {
         public:
             void printHeader();
+
+            void entradaDeDados();
+
+            void printLista(std::vector<iSync::Pessoa>& myPessoa);
     };
 }

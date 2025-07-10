@@ -5,22 +5,28 @@
 #include "Infra/ConsoleUI.h"
 #include "Infra/PessoaFactory.h"
 
+void inicializarClientes(iSync::ConsoleUI& myUi, iSync::PessoaFactory& myPessoaFactory, std::vector<iSync::Pessoa>& myListaDePessoa)
+{
+    myUi.printHeader();
+    // // Alterar por modelo de entrada padrão do sistema
+    int userInput;
+    std::cin >> userInput;
+
+    for (int i = 0; i < userInput; i++)
+    {
+        myListaDePessoa.push_back(myPessoaFactory.criarNovoCliente_PorTesteAutomatizado());
+    }
+
+}
+
 int main()
 {
     iSync::ConsoleUI myUi;
-    std::vector<iSync::Pessoa> allPessoas;
-
     iSync::PessoaFactory myPessoaFactory;
 
-    allPessoas.push_back(myPessoaFactory.criarNovoCliente());
-    
-        myUi.printHeader();
+    std::vector<iSync::Pessoa> myListaDePessoa;
 
-    for (long unsigned int i = 0; i < allPessoas.size(); i++)
-    {
+    inicializarClientes(myUi, myPessoaFactory, myListaDePessoa);
 
-        iSync::Pessoa bufferPessoa = allPessoas.at(i);
-
-        std::cout << "| ID: " << bufferPessoa.getId() << " , Nome: " << bufferPessoa.getNome() << " , Telefone: " << bufferPessoa.getTelefone() << std::endl;
-    }
+    myUi.printLista(myListaDePessoa);
 }

@@ -12,7 +12,8 @@ namespace iSync
     class PessoaFactory 
     {
         public:
-            iSync::Pessoa criarNovoCliente();
+            iSync::Pessoa criarNovoCliente_PorTesteAutomatizado();
+            iSync::Pessoa criarNovoCliente_PorConsole();
 
             iSync::Pessoa criarNovoCorretor();
 

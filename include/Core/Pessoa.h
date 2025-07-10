@@ -2,10 +2,6 @@
 
 #include <string>
 
-//nome
-//id
-//telefone
-
 namespace iSync
 {
     class Pessoa 
@@ -19,9 +15,9 @@ namespace iSync
             Pessoa(const int nextId, const std::string nome, const std::string telefone);
         public:
             // // Geterrs
-            const std::string getTelefone();
-            const std::string getNome();
-            const int getId();
+            std::string getTelefone();
+            std::string getNome();
+            int getId();
     };
     
 } // namespace iSync
