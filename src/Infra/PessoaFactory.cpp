@@ -6,8 +6,8 @@ iSync::Pessoa iSync::PessoaFactory::criarNovoCliente_PorTesteAutomatizado()
     
     std::string bufferNome, bufferTelefone;
 
-    myUI.input_iSync(bufferNome);
     myUI.input_iSync(bufferTelefone);
+    myUI.input_iSync(bufferNome);
 
     return iSync::Cliente( 000 , bufferNome, bufferTelefone);
 }
@@ -26,7 +26,7 @@ iSync::Pessoa iSync::PessoaFactory::criarNovoCorretor_PorTesteAutomatizado()
     }
     
     std::cout << "| ERROR: Problema na formatação" << std::endl;
-    return NULL; 
+    return iSync::Corretor(0, "NULL", "NULL", 0, 0.0, 0.0); 
 }
 
 // // Criação de objetos pelo console 

@@ -1,6 +1,7 @@
 #pragma once
 
 #include <string>
+#include <iostream>
 
 namespace iSync
 {
@@ -18,6 +19,8 @@ namespace iSync
             std::string getTelefone();
             std::string getNome();
             int getId();
+
+            virtual void printInfo();
     };
     
 } // namespace iSync

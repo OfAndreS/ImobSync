@@ -1,6 +1,8 @@
 #pragma once
 
 #include <string>
+#include <iostream>
+
 #include "Core/Pessoa.h"
 
 namespace iSync
@@ -10,6 +12,8 @@ namespace iSync
         public:
 
             Cliente(const int nextId, const std::string nome, const std::string telefone);
+
+            void printInfo() override;
 
     };
     

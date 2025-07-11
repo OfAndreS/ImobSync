@@ -1,6 +1,8 @@
 #pragma once
 
 #include <string>
+#include <iostream>
+
 #include "Core/Pessoa.h"
 
 namespace iSync
@@ -20,6 +22,8 @@ namespace iSync
             bool getAvaliador();
             double getLat();
             double getLng();
+
+            void printInfo() override;
     };
     
-} // namespace iSync
+} // namespace
