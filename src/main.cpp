@@ -24,33 +24,36 @@ int userNumberOfInput(iSync::ConsoleUI& myUI)
     return userNumberOfInput;
 }
 
-void inicializarClientes(iSync::PessoaFactory& myPessoaFactory, std::vector<std::unique_ptr<iSync::Pessoa>>& myListaDePessoa, int userNumberOfInput)
+void inicializarCorretor(iSync::PessoaFactory& myPessoaFactory, std::vector<std::unique_ptr<iSync::Corretor>>& myListaDePessoa, int userNumberOfInput)
 {
     for (int i = 0; i < userNumberOfInput; i++)
     {
-        myListaDePessoa.push_back(myPessoaFactory.criarNovoCliente_PorTesteAutomatizado(i, "Clientes"));
+        myListaDePessoa.push_back(myPessoaFactory.criarNovoCorretor_PorTesteAutomatizado(i + 1, "Corretor"));
     }
 }
 
-void inicializarCorretor(iSync::PessoaFactory& myPessoaFactory, std::vector<std::unique_ptr<iSync::Pessoa>>& myListaDePessoa, int userNumberOfInput)
+void inicializarClientes(iSync::PessoaFactory& myPessoaFactory, std::vector<std::unique_ptr<iSync::Cliente>>& myListaDePessoa, int userNumberOfInput)
 {
     for (int i = 0; i < userNumberOfInput; i++)
     {
-        myListaDePessoa.push_back(myPessoaFactory.criarNovoCorretor_PorTesteAutomatizado(i, "Corretor"));
+        myListaDePessoa.push_back(myPessoaFactory.criarNovoCliente_PorTesteAutomatizado(i + 1, "Clientes"));
     }
 }
+
 
 int main()
 {
     iSync::ConsoleUI myUI;
     iSync::PessoaFactory myPessoaFactory;
 
-    std::vector<std::unique_ptr<iSync::Pessoa>> myListaDePessoa;
+    std::vector<std::unique_ptr<iSync::Corretor>> myListaDeCorretores;
+    std::vector<std::unique_ptr<iSync::Cliente>> myListaDeClientes;
 
-    inicializarCorretor(myPessoaFactory, myListaDePessoa, userNumberOfInput(myUI));
-    inicializarClientes(myPessoaFactory, myListaDePessoa, userNumberOfInput(myUI));
+    inicializarCorretor(myPessoaFactory, myListaDeCorretores, userNumberOfInput(myUI));
+    inicializarClientes(myPessoaFactory, myListaDeClientes, userNumberOfInput(myUI));
     // // Lógica para inicializar os imóveis
 
-    myUI.printLista(myListaDePessoa);
+    myUI.printLista(myListaDeCorretores);
+    myUI.printLista(myListaDeClientes);
 }
 

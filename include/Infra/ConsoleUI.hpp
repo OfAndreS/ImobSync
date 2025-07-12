@@ -7,6 +7,8 @@
 #include <sstream>
 #include <memory>
 
+#include "Core/Cliente.h"
+#include "Core/Corretor.h"
 #include "Core/Pessoa.h" 
 
 namespace iSync
@@ -17,7 +19,9 @@ namespace iSync
         public:
             void printHeader();
             
-            void printLista(std::vector<std::unique_ptr<iSync::Pessoa>>& myListaDePessoa);
+            void printLista(std::vector<std::unique_ptr<iSync::Corretor>>& myListaDePessoa);
+
+            void printLista(std::vector<std::unique_ptr<iSync::Cliente>>& myListaDePessoa);
 
             void printErroLine(int numberOfTheLine, std::string typeOfInput);
 

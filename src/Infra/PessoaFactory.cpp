@@ -1,6 +1,6 @@
 #include "Infra/PessoaFactory.h"
 
-std::unique_ptr<iSync::Pessoa> iSync::PessoaFactory::criarNovoCliente_PorTesteAutomatizado(int numberOfTheLine, std::string typeOfInput)
+std::unique_ptr<iSync::Cliente> iSync::PessoaFactory::criarNovoCliente_PorTesteAutomatizado(int numberOfTheLine, std::string typeOfInput)
 {
     iSync::ConsoleUI myUI;
     
@@ -19,7 +19,7 @@ std::unique_ptr<iSync::Pessoa> iSync::PessoaFactory::criarNovoCliente_PorTesteAu
     exit(1);
 }
 
-std::unique_ptr<iSync::Pessoa> iSync::PessoaFactory::criarNovoCorretor_PorTesteAutomatizado(int numberOfTheLine, std::string typeOfInput)
+std::unique_ptr<iSync::Corretor> iSync::PessoaFactory::criarNovoCorretor_PorTesteAutomatizado(int numberOfTheLine, std::string typeOfInput)
 {
     iSync::ConsoleUI myUI;
 
