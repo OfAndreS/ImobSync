@@ -20,6 +20,7 @@ namespace iSync
             std::string getNome();
             int getId();
 
+            virtual ~Pessoa() = default; // Adicione esta linha
             virtual void printInfo();
     };
     

@@ -2,6 +2,7 @@
 
 #include <string>
 #include <iostream>
+#include <memory> 
 
 #include "Core/Pessoa.h"
 #include "Core/Cliente.h"
@@ -11,15 +12,14 @@
 
 namespace iSync
 {
-    class PessoaFactory 
+    class PessoaFactory
     {
         public:
+            // Altere o tipo de retorno para unique_ptr
+            std::unique_ptr<iSync::Pessoa> criarNovoCliente_PorTesteAutomatizado(int numberOfTheLine, std::string typeOfInput);
 
-            iSync::Pessoa criarNovoCliente_PorTesteAutomatizado();
-            
-            iSync::Pessoa criarNovoCliente_PorConsole();
-
-            iSync::Pessoa criarNovoCorretor_PorTesteAutomatizado();
+            // Altere o tipo de retorno para unique_ptr
+            std::unique_ptr<iSync::Pessoa> criarNovoCorretor_PorTesteAutomatizado(int numberOfTheLine, std::string typeOfInput);
     };
 
 } // namespace iSync

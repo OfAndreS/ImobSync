@@ -1,18 +1,25 @@
 #include "Infra/PessoaFactory.h"
 
-iSync::Pessoa iSync::PessoaFactory::criarNovoCliente_PorTesteAutomatizado()
+std::unique_ptr<iSync::Pessoa> iSync::PessoaFactory::criarNovoCliente_PorTesteAutomatizado(int numberOfTheLine, std::string typeOfInput)
 {
     iSync::ConsoleUI myUI;
     
     std::string bufferNome, bufferTelefone;
 
-    myUI.input_iSync(bufferTelefone);
-    myUI.input_iSync(bufferNome);
+    if (myUI.input_iSync(bufferTelefone) && myUI.input_iSync(bufferNome))
+    {
+        return std::make_unique<iSync::Cliente>(0, bufferNome, bufferTelefone);
+    }
 
-    return iSync::Cliente( 000 , bufferNome, bufferTelefone);
+    std::cout << "\n| Log: Tipo da entrada: ( " << typeOfInput << " ) / Linha do erro ( " << numberOfTheLine << " )"<< std::endl;
+
+    myUI.printErroLine(numberOfTheLine, typeOfInput);
+    myUI.printHeader();
+
+    exit(1);
 }
 
-iSync::Pessoa iSync::PessoaFactory::criarNovoCorretor_PorTesteAutomatizado()
+std::unique_ptr<iSync::Pessoa> iSync::PessoaFactory::criarNovoCorretor_PorTesteAutomatizado(int numberOfTheLine, std::string typeOfInput)
 {
     iSync::ConsoleUI myUI;
 
@@ -22,32 +29,11 @@ iSync::Pessoa iSync::PessoaFactory::criarNovoCorretor_PorTesteAutomatizado()
 
     if(myUI.input_iSync(bufferTelefone) && myUI.input_iSync(bufferAvaliador) && myUI.input_iSync(bufferLat) && myUI.input_iSync(bufferLng) && myUI.input_iSync(bufferNome))
     {
-        return iSync::Corretor(0, bufferNome, bufferTelefone, bufferAvaliador, bufferLat, bufferLng);
+        return std::make_unique<iSync::Corretor>(0, bufferNome, bufferTelefone, bufferAvaliador, bufferLat, bufferLng);
     }
-    
-    std::cout << "| ERROR: Problema na formatação" << std::endl;
-    return iSync::Corretor(0, "NULL", "NULL", 0, 0.0, 0.0); 
-}
 
-// // Criação de objetos pelo console 
-
-iSync::Pessoa iSync::PessoaFactory::criarNovoCliente_PorConsole()
-{
-    std::string nomeBuffer, telefoneBuffer;
-
-    iSync::ConsoleUI myUI;
-
+    myUI.printErroLine(numberOfTheLine, typeOfInput);
     myUI.printHeader();
 
-    std::cout << "| Digite o nome: " << std::endl;
-    std::cin >> nomeBuffer;
-
-    std::cout << "| Digite o Telefone: " << std::endl;
-    std::cin >> telefoneBuffer;
-
-    // // Criar lógica para randons IDs
-
-    iSync::Cliente myCliente(0000, nomeBuffer, telefoneBuffer);
-
-    return myCliente;
+    exit(1);
 }

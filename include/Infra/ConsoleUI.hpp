@@ -5,7 +5,7 @@
 #include <string>
 #include <limits>
 #include <sstream>
-
+#include <memory>
 
 #include "Core/Pessoa.h" 
 
@@ -17,40 +17,27 @@ namespace iSync
         public:
             void printHeader();
             
-            void printLista(std::vector<iSync::Pessoa>& myPessoa);
+            void printLista(std::vector<std::unique_ptr<iSync::Pessoa>>& myListaDePessoa);
 
-            bool itIsAnDigit(const std::string& tipo)
-            {
-                if(tipo.empty()) return false;
-                for (char a : tipo)
-                {
-                    if (!std::isdigit(a))
-                    {
-                        return false;
-                    }
-                }
-                return true;
-            }
+            void printErroLine(int numberOfTheLine, std::string typeOfInput);
 
             template<typename T>
             bool input_iSync(T& value) 
             {
                 std::string linha;
+                std::string printErro;
+
                 std::cin >> linha; 
 
                 std::stringstream ss(linha);
 
                 if ((ss >> value) && (ss.eof())) 
                 {
-                    return true; // Sucesso!
+                    return true;
                 }
 
                 return false; 
             }
-
-
-
-
             
     };
 }
