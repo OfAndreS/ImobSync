@@ -15,10 +15,8 @@ namespace iSync
     class PessoaFactory
     {
         public:
-            // Altere o tipo de retorno para unique_ptr
             std::unique_ptr<iSync::Corretor> criarNovoCorretor_PorTesteAutomatizado(int numberOfTheLine, std::string typeOfInput);
 
-            // Altere o tipo de retorno para unique_ptr
             std::unique_ptr<iSync::Cliente> criarNovoCliente_PorTesteAutomatizado(int numberOfTheLine, std::string typeOfInput);
 
     };

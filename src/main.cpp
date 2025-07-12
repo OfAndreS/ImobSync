@@ -10,11 +10,11 @@ int userNumberOfInput(iSync::ConsoleUI& myUI)
 {
     int userNumberOfInput;
 
-    myUI.printHeader();
-
-    // // Entrada padrão de dados para o sistema com tratamento de exceções 
     if(!myUI.input_iSync(userNumberOfInput))
     {
+
+        myUI.printHeader();
+
         std::cout << "| ERRO: Falha na inicialização \n\n| Log: O número passado como argumento para ler a quantidade de entrada está incorreto! " << std::endl;
 
         myUI.printHeader();
@@ -24,19 +24,19 @@ int userNumberOfInput(iSync::ConsoleUI& myUI)
     return userNumberOfInput;
 }
 
-void inicializarCorretor(iSync::PessoaFactory& myPessoaFactory, std::vector<std::unique_ptr<iSync::Corretor>>& myListaDePessoa, int userNumberOfInput)
+void inicializarCorretor(iSync::PessoaFactory& myPessoaFactory, std::vector<std::unique_ptr<iSync::Corretor>>& myListaDeCorretores, int userNumberOfInput)
 {
     for (int i = 0; i < userNumberOfInput; i++)
     {
-        myListaDePessoa.push_back(myPessoaFactory.criarNovoCorretor_PorTesteAutomatizado(i + 1, "Corretor"));
+        myListaDeCorretores.push_back(myPessoaFactory.criarNovoCorretor_PorTesteAutomatizado(i + 1, "Corretor"));
     }
 }
 
-void inicializarClientes(iSync::PessoaFactory& myPessoaFactory, std::vector<std::unique_ptr<iSync::Cliente>>& myListaDePessoa, int userNumberOfInput)
+void inicializarClientes(iSync::PessoaFactory& myPessoaFactory, std::vector<std::unique_ptr<iSync::Cliente>>& myListaDeClientes, int userNumberOfInput)
 {
     for (int i = 0; i < userNumberOfInput; i++)
     {
-        myListaDePessoa.push_back(myPessoaFactory.criarNovoCliente_PorTesteAutomatizado(i + 1, "Clientes"));
+        myListaDeClientes.push_back(myPessoaFactory.criarNovoCliente_PorTesteAutomatizado(i + 1, "Clientes"));
     }
 }
 
@@ -56,4 +56,3 @@ int main()
     myUI.printLista(myListaDeCorretores);
     myUI.printLista(myListaDeClientes);
 }
-

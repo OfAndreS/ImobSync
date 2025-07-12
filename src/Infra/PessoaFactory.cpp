@@ -11,8 +11,6 @@ std::unique_ptr<iSync::Cliente> iSync::PessoaFactory::criarNovoCliente_PorTesteA
         return std::make_unique<iSync::Cliente>(0, bufferNome, bufferTelefone);
     }
 
-    std::cout << "\n| Log: Tipo da entrada: ( " << typeOfInput << " ) / Linha do erro ( " << numberOfTheLine << " )"<< std::endl;
-
     myUI.printErroLine(numberOfTheLine, typeOfInput);
     myUI.printHeader();
 
