@@ -27,13 +27,6 @@ int userNumberOfInput(iSync::ConsoleUI& myUI)
     return userNumberOfInput;
 }
 
-void inicializarImoveis(iSync::ImovelFactory& myImovelFactory, std::vector<std::unique_ptr<iSync::Imovel>>& myListaDeImoveis, int userNumberOfInput)
-{
-    for (int i = 0; i < userNumberOfInput; i++)
-    {
-        myListaDeImoveis.push_back(myImovelFactory.criarNovoImovel_PorTesteAutomatizado(i + 1, "Imóvel"));
-    }
-}
 
 void inicializarCorretor(iSync::PessoaFactory& myPessoaFactory, std::vector<std::unique_ptr<iSync::Corretor>>& myListaDeCorretores, int userNumberOfInput)
 {
@@ -51,6 +44,13 @@ void inicializarClientes(iSync::PessoaFactory& myPessoaFactory, std::vector<std:
     }
 }
 
+void inicializarImoveis(iSync::ImovelFactory& myImovelFactory, std::vector<std::unique_ptr<iSync::Imovel>>& myListaDeImoveis, int userNumberOfInput)
+{
+    for (int i = 0; i < userNumberOfInput; i++)
+    {
+        myListaDeImoveis.push_back(myImovelFactory.criarNovoImovel_PorTesteAutomatizado(i + 1, "Imóvel"));
+    }
+}
 
 int main()
 {
@@ -58,13 +58,13 @@ int main()
     iSync::PessoaFactory myPessoaFactory;
     iSync::ImovelFactory myImovelFactory;
 
-    std::vector<std::unique_ptr<iSync::Imovel>> myListaDeImoveis;
     std::vector<std::unique_ptr<iSync::Corretor>> myListaDeCorretores;
     std::vector<std::unique_ptr<iSync::Cliente>> myListaDeClientes;
+    std::vector<std::unique_ptr<iSync::Imovel>> myListaDeImoveis;
 
-    inicializarImoveis(myImovelFactory, myListaDeImoveis, userNumberOfInput(myUI));
     inicializarCorretor(myPessoaFactory, myListaDeCorretores, userNumberOfInput(myUI));
     inicializarClientes(myPessoaFactory, myListaDeClientes, userNumberOfInput(myUI));
+    inicializarImoveis(myImovelFactory, myListaDeImoveis, userNumberOfInput(myUI));
 
     myUI.printLista(myListaDeCorretores);
     myUI.printLista(myListaDeClientes);

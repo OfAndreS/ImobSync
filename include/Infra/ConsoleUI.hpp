@@ -28,6 +28,8 @@ namespace iSync
 
             void printErroLine(int numberOfTheLine, std::string typeOfInput);
 
+            Tipo converteTipo(std::string userInput);
+
             template<typename T>
             bool input_iSync(T& value) 
             {

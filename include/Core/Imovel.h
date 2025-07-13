@@ -5,11 +5,10 @@
 
 namespace iSync
 {
+    enum class Tipo {Casa, Apartamento, Terreno};
+
     class Imovel
     {   
-        public:
-            enum Tipo {Casa, Apartamento, Terreno};
-
         private:
             const int nextId;
             Tipo tipo;
@@ -26,6 +25,7 @@ namespace iSync
             // // Geterrs
             int getId();
             std::string getTipo();
+
             int getPropId();
             double getLat();
             double getLng();

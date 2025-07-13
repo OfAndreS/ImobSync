@@ -38,6 +38,22 @@ void iSync::ConsoleUI::printLista(std::vector<std::unique_ptr<iSync::Cliente>>& 
     }
 }
 
+iSync::Tipo iSync::ConsoleUI::converteTipo(std::string userInput)
+{
+    if (userInput == "Casa")
+    {
+        return Tipo::Casa;
+    }
+    if (userInput == "Apartamento")
+    {
+        return Tipo::Apartamento;
+    }
+    if (userInput == "Terreno")
+    {
+        return Tipo::Terreno;
+    }
+}
+
 void iSync::ConsoleUI::printErroLine(int numberOfTheLine, std::string typeOfInput)
 {   
     std::string erroLine;

@@ -17,9 +17,9 @@ std::string iSync::Imovel::getTipo()
 {
     std::string tipoStr;
         switch (tipo) {
-            case Casa: tipoStr = "Casa"; break;
-            case Apartamento: tipoStr = "Apartamento"; break;
-            case Terreno: tipoStr = "Terreno"; break;
+            case Tipo::Casa: tipoStr = "Casa"; break;
+            case Tipo::Apartamento: tipoStr = "Apartamento"; break;
+            case Tipo::Terreno: tipoStr = "Terreno"; break;
         }
 }
 
