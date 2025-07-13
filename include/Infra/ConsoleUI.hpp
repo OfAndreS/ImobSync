@@ -20,15 +20,13 @@ namespace iSync
         public:
             void printHeader();
 
-            void printLista(std::vector<std::unique_ptr<iSync::Imovel>>& myListaDePessoa);
+            void printLista(std::vector<std::unique_ptr<iSync::Imovel>>& myListaDeImovel);
             
             void printLista(std::vector<std::unique_ptr<iSync::Corretor>>& myListaDePessoa);
 
             void printLista(std::vector<std::unique_ptr<iSync::Cliente>>& myListaDePessoa);
 
             void printErroLine(int numberOfTheLine, std::string typeOfInput);
-
-            Tipo converteTipo(std::string userInput);
 
             template<typename T>
             bool input_iSync(T& value) 

@@ -12,7 +12,7 @@ std::unique_ptr<iSync::Imovel> iSync::ImovelFactory::criarNovoImovel_PorTesteAut
     if(myUI.input_iSync(bufferTipo) && myUI.input_iSync(bufferPropId) && myUI.input_iSync(bufferLat) && myUI.input_iSync(bufferLng) && myUI.input_iSync(bufferPreco) && myUI.input_iSync(bufferEndereco))
     {
         std::cout << bufferTipo << std::endl;
-        return std::make_unique<iSync::Imovel>(0, myUI.converteTipo(bufferTipo), bufferPropId, bufferLat, bufferLng, bufferEndereco, bufferPreco);
+        return std::make_unique<iSync::Imovel>(0, iSync::Imovel::convertToTipo(bufferTipo), bufferPropId, bufferLat, bufferLng, bufferEndereco, bufferPreco);
     }
 
     myUI.printErroLine(numberOfTheLine, typeOfInput);

@@ -5,7 +5,7 @@ iSync::Imovel::Imovel(int nextId, Tipo tipo, int propId, double lat, double lng,
 
 void iSync::Imovel::printInfo()
 {
-    std::cout << "| ID: " << getId() << "| Tipo: " << getTipo() << "| Prop. ID: " << getPropId() << "| Lat: " << getLat() << "| Lng: " << getLng() << "| Endereço: " << getEndereco() << "| Preço: " << getPreco() << std::endl;
+    std::cout << "| ID: " << getId() << "| Tipo: " << convertTipoToString(getTipo()) << "| Prop. ID: " << getPropId() << "| Lat: " << getLat() << "| Lng: " << getLng() << "| Endereço: " << getEndereco() << "| Preço: " << getPreco() << std::endl;
 }
 
 int iSync::Imovel::getId()
@@ -13,24 +13,9 @@ int iSync::Imovel::getId()
     return this->nextId;
 }
 
-std::string iSync::Imovel::getTipo()
+iSync::Imovel::Tipo iSync::Imovel::getTipo()
 {
-    std::string tipoStr;
-        switch (tipo) {
-            case Tipo::Casa:
-                tipoStr = "Casa";
-                break;
-            case Tipo::Apartamento:
-                tipoStr = "Apartamento";
-                break;
-            case Tipo::Terreno:
-                tipoStr = "Terreno";
-                break;
-            default:
-                tipoStr = "Indefinido";
-                break;
-        }
-    return tipoStr;
+    return this->tipo;
 }
 
 int iSync::Imovel::getPropId()

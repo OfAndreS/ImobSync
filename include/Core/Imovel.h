@@ -5,10 +5,11 @@
 
 namespace iSync
 {
-    enum class Tipo {Casa, Apartamento, Terreno};
-
     class Imovel
     {   
+        public:
+            enum Tipo {Casa, Apartamento, Terreno};
+
         private:
             const int nextId;
             Tipo tipo;
@@ -24,7 +25,7 @@ namespace iSync
 
             // // Geterrs
             int getId();
-            std::string getTipo();
+            Tipo getTipo();
 
             int getPropId();
             double getLat();
@@ -33,6 +34,29 @@ namespace iSync
             double getPreco();
 
             void printInfo();
+            static std::string convertTipoToString(Tipo tipo) {
+                if (tipo == Casa) {
+                    return "Casa";
+                } else if (tipo == Apartamento) {
+                    return "Apartamento";
+                } else if (tipo == Terreno) {
+                    return "Terreno";
+                } else {
+                    return "Desconhecido";
+                }
+            }
+            static Tipo convertToTipo(const std::string& tipoString) {
+                if (tipoString == "Casa") {
+                    return Casa;
+                } else if (tipoString == "Apartamento") {
+                    return Apartamento;
+                } else if (tipoString == "Terreno") {
+                    return Terreno;
+                } else {
+                    return Casa; // Valor Default
+                }
+            }
+
 
     };
     

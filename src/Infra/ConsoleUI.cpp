@@ -5,14 +5,14 @@ void iSync::ConsoleUI::printHeader()
     std::cout << "\n\n|  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *\n\n" << std::endl;
 }
 
-void iSync::ConsoleUI::printLista(std::vector<std::unique_ptr<iSync::Imovel>>& myListaDePessoa)
+void iSync::ConsoleUI::printLista(std::vector<std::unique_ptr<iSync::Imovel>>& myListaDeImovel)
 {
     printHeader();
     std::cout << "| Lista de Imóveis: \n" << std::endl;
 
-    for (long unsigned int i = 0; i < myListaDePessoa.size(); i++)
+    for (long unsigned int i = 0; i < myListaDeImovel.size(); i++)
     {
-        myListaDePessoa[i]->printInfo();
+        myListaDeImovel[i]->printInfo();
     }
 }
 
@@ -35,22 +35,6 @@ void iSync::ConsoleUI::printLista(std::vector<std::unique_ptr<iSync::Cliente>>& 
     for (long unsigned int i = 0; i < myListaDePessoa.size(); i++)
     {
         myListaDePessoa[i]->printInfo();
-    }
-}
-
-iSync::Tipo iSync::ConsoleUI::converteTipo(std::string userInput)
-{
-    if (userInput == "Casa")
-    {
-        return Tipo::Casa;
-    }
-    if (userInput == "Apartamento")
-    {
-        return Tipo::Apartamento;
-    }
-    if (userInput == "Terreno")
-    {
-        return Tipo::Terreno;
     }
 }
 
