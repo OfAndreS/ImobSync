@@ -17,10 +17,20 @@ std::string iSync::Imovel::getTipo()
 {
     std::string tipoStr;
         switch (tipo) {
-            case Tipo::Casa: tipoStr = "Casa"; break;
-            case Tipo::Apartamento: tipoStr = "Apartamento"; break;
-            case Tipo::Terreno: tipoStr = "Terreno"; break;
+            case Tipo::Casa:
+                tipoStr = "Casa";
+                break;
+            case Tipo::Apartamento:
+                tipoStr = "Apartamento";
+                break;
+            case Tipo::Terreno:
+                tipoStr = "Terreno";
+                break;
+            default:
+                tipoStr = "Indefinido";
+                break;
         }
+    return tipoStr;
 }
 
 int iSync::Imovel::getPropId()
