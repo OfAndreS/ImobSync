@@ -9,7 +9,8 @@
 
 #include "Core/Cliente.h"
 #include "Core/Corretor.h"
-#include "Core/Pessoa.h" 
+#include "Core/Pessoa.h"
+#include "Core/Imovel.h"
 
 namespace iSync
 {
@@ -18,6 +19,8 @@ namespace iSync
     {
         public:
             void printHeader();
+
+            void printLista(std::vector<std::unique_ptr<iSync::Imovel>>& myListaDePessoa);
             
             void printLista(std::vector<std::unique_ptr<iSync::Corretor>>& myListaDePessoa);
 
