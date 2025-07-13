@@ -69,4 +69,6 @@ int main()
     myUI.printLista(myListaDeCorretores);
     myUI.printLista(myListaDeClientes);
     myUI.printLista(myListaDeImoveis);
+
+    myUI.printHeader();
 }
