@@ -8,6 +8,7 @@
 #include "Infra/ConsoleUI.hpp"
 #include "Infra/PessoaFactory.h"
 #include "Infra/ImovelFactory.h"
+#include "Infra/BusinessLogic.h"
 
 int userNumberOfInput(iSync::ConsoleUI& myUI)
 {
@@ -57,6 +58,7 @@ int main()
     iSync::ConsoleUI myUI;
     iSync::PessoaFactory myPessoaFactory;
     iSync::ImovelFactory myImovelFactory;
+    iSync::BusinessLogic business;
 
     std::vector<std::unique_ptr<iSync::Corretor>> myListaDeCorretores;
     std::vector<std::unique_ptr<iSync::Cliente>> myListaDeClientes;
@@ -69,4 +71,5 @@ int main()
     myUI.printLista(myListaDeCorretores);
     myUI.printLista(myListaDeClientes);
     myUI.printLista(myListaDeImoveis);
+    business.agendamento(myListaDeCorretores, myListaDeImoveis);
 }
