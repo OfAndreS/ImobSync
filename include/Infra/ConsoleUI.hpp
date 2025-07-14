@@ -11,6 +11,7 @@
 #include "Core/Corretor.h"
 #include "Core/Pessoa.h"
 #include "Core/Imovel.h"
+#include "Infra/BusinessLogic.h"
 
 namespace iSync
 {
@@ -19,6 +20,8 @@ namespace iSync
     {
         public:
             void printHeader();
+
+            void printAgenda(std::vector<std::unique_ptr<iSync::Corretor>>& myListaDeCorretores, iSync::resultadoAgendamento& resultado);
 
             void printLista(std::vector<std::unique_ptr<iSync::Imovel>>& myListaDeImovel);
             

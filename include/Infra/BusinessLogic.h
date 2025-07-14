@@ -6,24 +6,24 @@
 
 #include <vector>
 #include <cmath>
-#include <algorithm>
-#include <chrono>
 #include <map>
-#include <limits>
 #include <memory> 
 
 #include "Core/Corretor.h"
 #include "Core/Imovel.h"
-#include "Infra/ConsoleUI.hpp"
 
 namespace iSync
 {
+    struct resultadoAgendamento {
+        std::vector<int> myListaDeAvaliadores;
+        std::map<int, std::vector<std::unique_ptr<iSync::Imovel>>> agendaPorCorretor;
+    };
+
     class BusinessLogic
     {
         public:
-            void agendamento(std::vector<std::unique_ptr<iSync::Corretor>>& myListaDeCorretores, std::vector<std::unique_ptr<iSync::Imovel>>& myListaDeImoveis);  
+            resultadoAgendamento agendamento(std::vector<std::unique_ptr<iSync::Corretor>>& myListaDeCorretores, std::vector<std::unique_ptr<iSync::Imovel>>& myListaDeImoveis);  
         
-        private:
             static constexpr double EARTH_R = 6371.0;
 
             static double haversine(double lat1, double lon1, double lat2, double lon2) {
