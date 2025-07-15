@@ -1,0 +1,13 @@
+
+
+|  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *
+
+
+| ERROR: Problema na formatação no arquivo txt
+
+| Log: Tipo da entrada ( Imóvel ) / Linha do erro ( 22 ) / Local do erro ( __ERRO__ Apartamento )
+
+
+|  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *
+
+
