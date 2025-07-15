@@ -1,6 +1,6 @@
 #include "Infra/ImovelFactory.h"
 
-std::unique_ptr<iSync::Imovel> iSync::ImovelFactory::criarNovoImovel_PorTesteAutomatizado(int numberOfTheLine, std::string typeOfInput)
+std::unique_ptr<iSync::Imovel> iSync::ImovelFactory::criarNovoImovel_PorTesteAutomatizado(int numberOfTheLine, int numberOfLineError, std::string typeOfInput)
 {
     iSync::ConsoleUI myUI;
 
@@ -11,10 +11,10 @@ std::unique_ptr<iSync::Imovel> iSync::ImovelFactory::criarNovoImovel_PorTesteAut
 
     if(myUI.input_iSync(bufferTipo) && myUI.input_iSync(bufferPropId) && myUI.input_iSync(bufferLat) && myUI.input_iSync(bufferLng) && myUI.input_iSync(bufferPreco) && myUI.input_iSync(bufferEndereco))
     {
-        return std::make_unique<iSync::Imovel>(0, iSync::Imovel::convertToTipo(bufferTipo), bufferPropId, bufferLat, bufferLng, bufferEndereco, bufferPreco);
+        return std::make_unique<iSync::Imovel>(numberOfTheLine, iSync::Imovel::convertToTipo(bufferTipo), bufferPropId, bufferLat, bufferLng, bufferEndereco, bufferPreco);
     }
 
-    myUI.printErroLine(numberOfTheLine, typeOfInput);
+    myUI.printErroLine(numberOfLineError, typeOfInput);
     myUI.printHeader();
 
     exit(1);

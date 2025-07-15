@@ -1,6 +1,6 @@
 #include "Infra/PessoaFactory.h"
 
-std::unique_ptr<iSync::Cliente> iSync::PessoaFactory::criarNovoCliente_PorTesteAutomatizado(int numberOfTheLine, std::string typeOfInput)
+std::unique_ptr<iSync::Cliente> iSync::PessoaFactory::criarNovoCliente_PorTesteAutomatizado(int numberOfTheLine, int numberOfLineError, std::string typeOfInput)
 {
     iSync::ConsoleUI myUI;
     
@@ -8,16 +8,16 @@ std::unique_ptr<iSync::Cliente> iSync::PessoaFactory::criarNovoCliente_PorTesteA
 
     if (myUI.input_iSync(bufferTelefone) && myUI.input_iSync(bufferNome))
     {
-        return std::make_unique<iSync::Cliente>(0, bufferNome, bufferTelefone);
+        return std::make_unique<iSync::Cliente>(numberOfTheLine, bufferNome, bufferTelefone);
     }
 
-    myUI.printErroLine(numberOfTheLine, typeOfInput);
+    myUI.printErroLine(numberOfLineError, typeOfInput);
     myUI.printHeader();
 
     exit(1);
 }
 
-std::unique_ptr<iSync::Corretor> iSync::PessoaFactory::criarNovoCorretor_PorTesteAutomatizado(int numberOfTheLine, std::string typeOfInput)
+std::unique_ptr<iSync::Corretor> iSync::PessoaFactory::criarNovoCorretor_PorTesteAutomatizado(int numberOfTheLine, int numberOfLineError, std::string typeOfInput)
 {
     iSync::ConsoleUI myUI;
 
@@ -27,10 +27,10 @@ std::unique_ptr<iSync::Corretor> iSync::PessoaFactory::criarNovoCorretor_PorTest
 
     if(myUI.input_iSync(bufferTelefone) && myUI.input_iSync(bufferAvaliador) && myUI.input_iSync(bufferLat) && myUI.input_iSync(bufferLng) && myUI.input_iSync(bufferNome))
     {
-        return std::make_unique<iSync::Corretor>(0, bufferNome, bufferTelefone, bufferAvaliador, bufferLat, bufferLng);
+        return std::make_unique<iSync::Corretor>(numberOfTheLine, bufferNome, bufferTelefone, bufferAvaliador, bufferLat, bufferLng);
     }
 
-    myUI.printErroLine(numberOfTheLine, typeOfInput);
+    myUI.printErroLine(numberOfLineError, typeOfInput);
     myUI.printHeader();
 
     exit(1);
