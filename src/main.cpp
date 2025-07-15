@@ -77,9 +77,6 @@ int main()
     inicializarClientes(myPessoaFactory, myListaDeClientes, userNumberOfInput(myUI));
     inicializarImoveis(myImovelFactory, myListaDeImoveis, userNumberOfInput(myUI));
 
-    // myUI.printLista(myListaDeCorretores);
-    // myUI.printLista(myListaDeClientes);
-    // myUI.printLista(myListaDeImoveis);
-
-    business.agendamento(myListaDeCorretores, myListaDeImoveis);
+    auto resultado = business.agendamento(myListaDeCorretores, myListaDeImoveis);
+    myUI.printAgenda(myListaDeCorretores, resultado);
 }

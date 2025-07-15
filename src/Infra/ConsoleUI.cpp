@@ -96,6 +96,6 @@ void iSync::ConsoleUI::printErroLine(int numberOfTheLine, std::string typeOfInpu
     std::string erroLine;
     printHeader();
     std::cin >> erroLine;
-    std::cout << "| ERROR: Problema na formatação" << std::endl;
+    std::cout << "| ERROR: Problema na formatação no arquivo txt" << std::endl;
     std::cout << "\n| Log: Tipo da entrada ( " << typeOfInput << " ) / Linha do erro ( " << numberOfTheLine << " ) / Local do erro ( __ERRO__ " << erroLine << " )" << std::endl;
 }

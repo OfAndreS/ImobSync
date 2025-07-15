@@ -22,9 +22,7 @@ namespace iSync
     class BusinessLogic
     {
         public:
-            iSync::resultadoAgendamento  agendamento(std::vector<std::unique_ptr<iSync::Corretor>>& myListaDeCorretores, std::vector<std::unique_ptr<iSync::Imovel>>& myListaDeImoveis); 
-            
-            int retornaId(int line);
+            resultadoAgendamento agendamento(std::vector<std::unique_ptr<iSync::Corretor>>& myListaDeCorretores, std::vector<std::unique_ptr<iSync::Imovel>>& myListaDeImoveis);  
         
             static constexpr double EARTH_R = 6371.0;
 
