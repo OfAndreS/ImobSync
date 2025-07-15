@@ -7,7 +7,6 @@ void iSync::ConsoleUI::printHeader()
 
 void iSync::ConsoleUI::printAgenda(std::vector<std::unique_ptr<iSync::Corretor>>& myListaDeCorretores, iSync::resultadoAgendamento& resultado)
 {
-    printHeader();
     std::cout << "| Agendamento: \n" << std::endl;
 
     for (size_t i = 0; i < resultado.myListaDeAvaliadores.size(); ++i) {
