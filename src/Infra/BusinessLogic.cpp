@@ -16,7 +16,7 @@ iSync::resultadoAgendamento iSync::BusinessLogic::agendamento(std::vector<std::u
         int indexCorretor = myListaDeAvaliadores[i % myListaDeAvaliadores.size()];
         agendaPorCorretor[indexCorretor].push_back(std::move(myListaDeImoveis[i]));
     }
-
+    
     return {
         std::move(myListaDeAvaliadores), std::move(agendaPorCorretor)
     };

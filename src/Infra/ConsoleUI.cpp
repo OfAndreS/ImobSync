@@ -11,8 +11,10 @@ void iSync::ConsoleUI::printAgenda(std::vector<std::unique_ptr<iSync::Corretor>>
     std::cout << "| Agendamento: \n" << std::endl;
 
     for (size_t i = 0; i < resultado.myListaDeAvaliadores.size(); ++i) {
-        auto& corretor = myListaDeCorretores[i];
-        auto& agenda = resultado.agendaPorCorretor[i];
+        int indexCorretorReal = resultado.myListaDeAvaliadores[i];
+        auto& corretor = myListaDeCorretores[indexCorretorReal];
+        auto& agenda = resultado.agendaPorCorretor[indexCorretorReal];
+
 
         std::cout << "Corretor " << corretor->getId() << "\n";
 
