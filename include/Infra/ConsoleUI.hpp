@@ -48,16 +48,14 @@ namespace iSync
             }
 
             template<typename Q>
-            bool inputAnLine_iSync(Q& value) 
+            bool inputAnLine_iSync(Q& value)
             {
                 std::string linha;
-
-                std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
                 std::getline(std::cin >> std::ws, linha);
 
                 value = linha;
-
-                return false; 
+                
+                return true;
             }
             
     };

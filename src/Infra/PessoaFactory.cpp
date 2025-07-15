@@ -6,7 +6,7 @@ std::unique_ptr<iSync::Cliente> iSync::PessoaFactory::criarNovoCliente_PorTesteA
     
     std::string bufferNome, bufferTelefone;
 
-    if (myUI.input_iSync(bufferTelefone) && myUI.input_iSync(bufferNome))
+    if (myUI.input_iSync(bufferTelefone) && myUI.inputAnLine_iSync(bufferNome))
     {
         return std::make_unique<iSync::Cliente>(numberOfTheLine, bufferNome, bufferTelefone);
     }
@@ -25,7 +25,7 @@ std::unique_ptr<iSync::Corretor> iSync::PessoaFactory::criarNovoCorretor_PorTest
     double bufferLat, bufferLng;
     bool bufferAvaliador;
 
-    if(myUI.input_iSync(bufferTelefone) && myUI.input_iSync(bufferAvaliador) && myUI.input_iSync(bufferLat) && myUI.input_iSync(bufferLng) && myUI.input_iSync(bufferNome))
+    if(myUI.input_iSync(bufferTelefone) && myUI.input_iSync(bufferAvaliador) && myUI.input_iSync(bufferLat) && myUI.input_iSync(bufferLng) && myUI.inputAnLine_iSync(bufferNome))
     {
         return std::make_unique<iSync::Corretor>(numberOfTheLine, bufferNome, bufferTelefone, bufferAvaliador, bufferLat, bufferLng);
     }
