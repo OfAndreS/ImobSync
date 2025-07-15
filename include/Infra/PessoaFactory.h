@@ -15,9 +15,9 @@ namespace iSync
     class PessoaFactory
     {
         public:
-            std::unique_ptr<iSync::Corretor> criarNovoCorretor_PorTesteAutomatizado(int numberOfTheLine, std::string typeOfInput);
+            std::unique_ptr<iSync::Corretor> criarNovoCorretor_PorTesteAutomatizado(int numberOfTheLine, int numberOfLineError, std::string typeOfInput);
 
-            std::unique_ptr<iSync::Cliente> criarNovoCliente_PorTesteAutomatizado(int numberOfTheLine, std::string typeOfInput);
+            std::unique_ptr<iSync::Cliente> criarNovoCliente_PorTesteAutomatizado(int numberOfTheLine, int numberOfLineError, std::string typeOfInput);
 
     };
 

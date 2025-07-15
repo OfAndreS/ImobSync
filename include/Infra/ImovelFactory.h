@@ -13,7 +13,7 @@ namespace iSync
     class ImovelFactory
     {
         public:
-            std::unique_ptr<iSync::Imovel> criarNovoImovel_PorTesteAutomatizado(int numberOfTheLine, std::string typeOfInput);
+            std::unique_ptr<iSync::Imovel> criarNovoImovel_PorTesteAutomatizado(int numberOfTheLine, int numberOfLineError, std::string typeOfInput);
 
     };
 
