@@ -42,7 +42,7 @@ namespace iSync
                 } else if (tipo == Terreno) {
                     return "Terreno";
                 } else {
-                    return "Desconhecido";
+                    return "Desconhecido"; // // Valor Default
                 }
             }
             static Tipo convertToTipo(const std::string& tipoString) {
@@ -53,7 +53,7 @@ namespace iSync
                 } else if (tipoString == "Terreno") {
                     return Terreno;
                 } else {
-                    return Casa; // Valor Default
+                    return Casa; // // Valor Default
                 }
             }
 
