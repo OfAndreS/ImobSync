@@ -10,10 +10,14 @@
 #include "Infra/ImovelFactory.h"
 #include "Infra/BusinessLogic.h"
 
+int numberOfLineError;
+
 int userNumberOfInput(iSync::ConsoleUI& myUI)
 {
     int userNumberOfInput;
 
+    numberOfLineError++;
+    
     if(!myUI.input_iSync(userNumberOfInput))
     {
 
@@ -31,25 +35,30 @@ int userNumberOfInput(iSync::ConsoleUI& myUI)
 
 void inicializarCorretor(iSync::PessoaFactory& myPessoaFactory, std::vector<std::unique_ptr<iSync::Corretor>>& myListaDeCorretores, int userNumberOfInput)
 {
-    for (int i = 0; i < userNumberOfInput; i++)
+    for (int ii = 0; ii < userNumberOfInput; ii++)
     {
-        myListaDeCorretores.push_back(myPessoaFactory.criarNovoCorretor_PorTesteAutomatizado(i + 1, "Corretor"));
+        numberOfLineError++;
+        myListaDeCorretores.push_back(myPessoaFactory.criarNovoCorretor_PorTesteAutomatizado(ii + 1, numberOfLineError, "Corretor"));
     }
 }
 
 void inicializarClientes(iSync::PessoaFactory& myPessoaFactory, std::vector<std::unique_ptr<iSync::Cliente>>& myListaDeClientes, int userNumberOfInput)
 {
-    for (int i = 0; i < userNumberOfInput; i++)
+    numberOfLineError++;
+    for (int ii = 0; ii < userNumberOfInput; ii++)
     {
-        myListaDeClientes.push_back(myPessoaFactory.criarNovoCliente_PorTesteAutomatizado(i + 1, "Clientes"));
+        numberOfLineError++;
+        myListaDeClientes.push_back(myPessoaFactory.criarNovoCliente_PorTesteAutomatizado(ii + 1, numberOfLineError, "Clientes"));
     }
 }
 
 void inicializarImoveis(iSync::ImovelFactory& myImovelFactory, std::vector<std::unique_ptr<iSync::Imovel>>& myListaDeImoveis, int userNumberOfInput)
 {
-    for (int i = 0; i < userNumberOfInput; i++)
+    numberOfLineError++;
+    for (int ii = 0; ii < userNumberOfInput; ii++)
     {
-        myListaDeImoveis.push_back(myImovelFactory.criarNovoImovel_PorTesteAutomatizado(i + 1, "Imóvel"));
+        numberOfLineError++;
+        myListaDeImoveis.push_back(myImovelFactory.criarNovoImovel_PorTesteAutomatizado(ii + 1, numberOfLineError, "Imóvel"));
     }
 }
 
@@ -68,8 +77,9 @@ int main()
     inicializarClientes(myPessoaFactory, myListaDeClientes, userNumberOfInput(myUI));
     inicializarImoveis(myImovelFactory, myListaDeImoveis, userNumberOfInput(myUI));
 
-    myUI.printLista(myListaDeCorretores);
-    myUI.printLista(myListaDeClientes);
-    myUI.printLista(myListaDeImoveis);
+    // myUI.printLista(myListaDeCorretores);
+    // myUI.printLista(myListaDeClientes);
+    // myUI.printLista(myListaDeImoveis);
+
     business.agendamento(myListaDeCorretores, myListaDeImoveis);
 }

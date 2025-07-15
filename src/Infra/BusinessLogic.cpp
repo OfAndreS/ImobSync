@@ -55,3 +55,9 @@ void iSync::BusinessLogic::agendamento(std::vector<std::unique_ptr<iSync::Corret
         std::cout << "\n";
     }
 }
+/*
+int iSync::BusinessLogic::retornaId(int line)
+{
+
+}
+*/
